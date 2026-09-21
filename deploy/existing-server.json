@@ -1,0 +1,19 @@
+{
+  "root": "/opt/meir-shop",
+  "service": "meir-shop",
+  "admin_directory": "/www/wwwroot/meirht.okam.top",
+  "h5_directory": "/www/wwwroot/meir.okam.top",
+  "api_url": "https://meirht.okam.top",
+  "h5_url": "https://meir.okam.top",
+  "local_api_url": "http://127.0.0.1:18080",
+  "mysql": "/www/server/mysql/bin/mysql",
+  "mysqldump": "/www/server/mysql/bin/mysqldump",
+  "database": "meir_shop",
+  "build_java_home": "/usr/lib/jvm/java-1.8.0",
+  "node_version": "22.23.2",
+  "node_linux_x64_sha256": "d60acfe00a2932254bb0ad20e01b0d74397a0875595de719654b214f4b03f307",
+  "admin_repository": "https://github.com/sickelgroupe-create/heluojia-admin.git",
+  "admin_revision": "423bebd403ac8a5e2598be46a898e3c5071d310a",
+  "miniapp_repository": "https://github.com/sickelgroupe-create/heluojia-miniapp.git",
+  "miniapp_revision": "ce18cc9f90457b16e64dd98a52ea6da8f58da6ca"
+}

@@ -28,6 +28,8 @@
 
 ## 快速启动
 
+**继续部署原服务器**：同事拉取本仓库后，在原服务器执行 `sudo python3 deploy/update_existing.py --apply`，自动拉取配套前端、构建、备份、更新和检查，复用原数据库及支付配置。首次目录准备、后续更新及微信体验版边界见 [原服务器一键更新](deploy/EXISTING-SERVER.md)。以下步骤用于全新本地环境。
+
 准备 JDK 8、Maven 3.9.x、MySQL 8.0/8.4、Redis。以下命令在本仓库根目录执行。
 
 1. 按 [数据库说明](database/README.md) 创建空数据库及账号；将 `deploy/mysql-client.cnf.example` 复制到仓库外，填入本机数据库连接参数。
