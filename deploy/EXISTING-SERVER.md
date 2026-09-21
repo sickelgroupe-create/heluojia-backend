@@ -2,9 +2,11 @@
 
 适用：现有服务器 `49.233.182.250`，服务 `meir-shop`，后台/API `meirht.okam.top`，H5 `meir.okam.top`。继续使用这三个 GitHub 仓库，不创建新业务库、不导入安装 SQL、不更换微信支付配置。
 
+已于 2026-09-22 在原服务器完成一次完整更新，见 [实测记录](EXISTING-SERVER-VERIFICATION.md)。
+
 ## 同事第一次操作
 
-通过自己的 SSH 授权登录原服务器，使用 root 或 sudo 权限。首次拉取后端：
+通过自己的 SSH 授权以 root 登录原服务器；普通运维账号有 sudo 权限时，先执行 `sudo -i` 切换到 root。源码、日志和备份目录仅授权运维人员访问。首次拉取后端：
 
 ```sh
 sudo mkdir -p /opt/meir-shop/source
