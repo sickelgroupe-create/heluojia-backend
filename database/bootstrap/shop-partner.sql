@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS shop_partner_profile(member_id BIGINT PRIMARY KEY,tier INT NOT NULL,enabled BOOLEAN NOT NULL DEFAULT TRUE,reason VARCHAR(300) NOT NULL,updated_at DATETIME DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS shop_partner_assistant(owner_id BIGINT PRIMARY KEY,member_id BIGINT UNIQUE NULL,token_hash VARCHAR(64) UNIQUE NULL,expires_at DATETIME NULL,created_at DATETIME DEFAULT CURRENT_TIMESTAMP);
+INSERT IGNORE INTO shop_config(config_key,content) VALUES('partner','{"tiers":[{"name":"3.8折客户","rate":3800,"referenceAmount":0},{"name":"2.8折客户","rate":2800,"referenceAmount":4980000},{"name":"共建合伙人","rate":2200,"referenceAmount":0}],"excludedProducts":[],"catalogGroups":[]}');

@@ -1,0 +1,5 @@
+-- Run as a MySQL administrator; choose a unique password before executing.
+CREATE DATABASE meir_shop CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'meir_shop'@'127.0.0.1' IDENTIFIED BY 'REPLACE_WITH_DATABASE_PASSWORD';
+GRANT ALL PRIVILEGES ON meir_shop.* TO 'meir_shop'@'127.0.0.1';
+-- Backend startup applies idempotent schema upgrades and needs DDL rights on this database.

@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "database": "empty database import + startup",
+  "tables": 112,
+  "catalogProducts": 7,
+  "fixedRetailPrices": [
+    318,
+    328,
+    268,
+    348,
+    398,
+    238,
+    398
+  ],
+  "publicAssetResponses": 18,
+  "adminLogin": true,
+  "adminShopRoute": true,
+  "nonEmptyImportRefused": true,
+  "realPaymentDisabled": true,
+  "backendTests": {
+    "tests": 44,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "builds": {
+    "backend": "passed",
+    "admin": "passed",
+    "h5": "passed",
+    "mp-weixin": "passed"
+  },
+  "packagedBootstrapSql": 24,
+  "productionCredentialsIncluded": false
+}

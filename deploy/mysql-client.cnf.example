@@ -1,0 +1,6 @@
+[client]
+host=127.0.0.1
+port=3306
+user=meir_shop
+password="replace_with_database_password"
+default-character-set=utf8mb4

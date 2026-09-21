@@ -1,0 +1,55 @@
+# Dependencies, builds and local runtime
+node_modules/
+target/
+dist/
+unpackage/
+/build/
+coverage/
+runtime/
+.local/
+__pycache__/
+*.pyc
+*.class
+*.jar
+*.log
+*.zip
+*.tar.gz
+*.tmp
+*.bak
+# IDE and OS files
+.idea/
+.vscode/
+.hbuilderx/
+.settings/
+.classpath
+.project
+*.iml
+*.swp
+.DS_Store
+Thumbs.db
+# Local credentials and server configuration
+.env*
+!.env.example
+!.env.*.example
+.npmrc
+*.private.*
+*.local
+application-server.properties
+application-local.properties
+application-local.yml
+application-local.yaml
+server.env
+mysql-client.cnf
+project.private.config.json
+*.pem
+*.p12
+*.pfx
+*.key
+*.jks
+*.keystore
+.ssh/
+wechat-pay/
+backups/
+# Dependency locks and configuration examples must be committed
+!package-lock.json
+!*.example

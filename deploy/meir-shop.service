@@ -1,0 +1,18 @@
+[Unit]
+Description=Meir Shop API
+After=network.target
+
+[Service]
+Type=simple
+User=meir-shop
+Group=meir-shop
+WorkingDirectory=/opt/meir-shop
+EnvironmentFile=/opt/meir-shop/server.env
+ExecStart=/usr/bin/java -Duser.timezone=Asia/Shanghai -Xms256m -Xmx768m -jar /opt/meir-shop/app/ruoyi-admin.jar --spring.config.additional-location=file:/opt/meir-shop/application-server.properties
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

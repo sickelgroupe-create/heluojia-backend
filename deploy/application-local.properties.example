@@ -1,0 +1,24 @@
+# Copy to repository root as application-local.properties (ignored by Git).
+# Replace CHANGE_ME placeholders before running. All paths are relative to the backend repository.
+server.address=127.0.0.1
+server.port=18080
+spring.datasource.druid.master.url=jdbc:mysql://127.0.0.1:3306/meir_shop?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai
+spring.datasource.druid.master.username=meir_shop
+spring.datasource.druid.master.password=CHANGE_ME_DATABASE_PASSWORD
+spring.datasource.druid.statViewServlet.enabled=false
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=
+spring.redis.database=0
+token.secret=CHANGE_ME_TO_A_RANDOM_64_CHARACTER_SECRET
+ruoyi.profile=./runtime/profile
+shop.asset-path=./runtime/assets
+shop.private-path=./runtime/private
+shop.demo=false
+shop.test-data=false
+shop.official-display=true
+shop.wechat.only=true
+shop.wechat.app-id=
+shop.wechat.app-secret=
+shop.wechat-pay.enabled=false
+spring.devtools.restart.enabled=false

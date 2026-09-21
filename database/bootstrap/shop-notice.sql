@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS shop_notice(id BIGINT PRIMARY KEY AUTO_INCREMENT,member_id BIGINT NOT NULL,event_key VARCHAR(120) NOT NULL UNIQUE,category VARCHAR(20) NOT NULL,title VARCHAR(100) NOT NULL,body VARCHAR(1500) NOT NULL,target_screen VARCHAR(40) NULL,target_id BIGINT NULL,read_at DATETIME NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,INDEX member_notices(member_id,read_at,created_at));
+CREATE TABLE IF NOT EXISTS shop_notice_preference(member_id BIGINT PRIMARY KEY,content TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS shop_notice_outbox(event_id BIGINT PRIMARY KEY,processed_at DATETIME NULL);

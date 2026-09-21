@@ -1,0 +1,8 @@
+package com.ruoyi.web.controller.shop;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.web.bind.annotation.*;import org.springframework.security.access.prepost.PreAuthorize;import org.springframework.scheduling.annotation.Scheduled;import com.ruoyi.common.core.domain.AjaxResult;
+@RestController @RequestMapping("/shop/admin/operations") public class ShopOperationsController {
+ @Autowired ShopBackups backups;@Autowired ShopService s;
+ @PreAuthorize("@ss.hasPermi('shop:manage')") @GetMapping public AjaxResult status(){return AjaxResult.success(backups.status());}
+ @PreAuthorize("@ss.hasPermi('shop:manage')") @PostMapping("/backup") public AjaxResult backup()throws Exception{Object result=backups.backup();s.event("operations",0,"完成一次数据库及附件备份",com.ruoyi.common.utils.SecurityUtils.getUsername());return AjaxResult.success(result);}
+ @Scheduled(cron="0 50 3 * * ?",zone="Asia/Shanghai") @org.springframework.transaction.annotation.Transactional public void auditRetention(){String normal="e.object_type in ('catalog','media','rules','loyalty','operations') and e.created_at<date_sub(now(),interval 180 day)";s.jdbc().update("delete e,n from shop_event e join shop_notice_outbox n on n.event_id=e.id where n.processed_at is not null and "+normal);s.jdbc().update("delete e from shop_event e left join shop_notice_outbox n on n.event_id=e.id where n.event_id is null and "+normal);s.jdbc().update("delete from sys_oper_log where oper_time<date_sub(now(),interval 180 day)");s.jdbc().update("delete from sys_logininfor where login_time<date_sub(now(),interval 180 day)");}
+}

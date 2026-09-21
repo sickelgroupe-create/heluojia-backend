@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS shop_delivery_order(order_id BIGINT PRIMARY KEY,method VARCHAR(20) NOT NULL,fee BIGINT NOT NULL,snapshot_json MEDIUMTEXT NOT NULL,pickup_code VARCHAR(12) NULL,pickup_status VARCHAR(20) NOT NULL DEFAULT 'pending');
+CREATE TABLE IF NOT EXISTS shop_delivery_trace(id BIGINT PRIMARY KEY AUTO_INCREMENT,shipment_id BIGINT NOT NULL,occurred_at DATETIME NOT NULL,note VARCHAR(500) NOT NULL,operator_name VARCHAR(64) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+INSERT IGNORE INTO shop_config(config_key,content) VALUES('delivery','{"methods":["express"],"rules":[{"regions":["*"],"first":1,"firstFee":0,"next":1,"nextFee":0,"remoteFee":0,"freeAmount":0}],"points":[],"notice":"当前为零运费测试模板，正式经营前请设置实际配送范围与运价。"}');

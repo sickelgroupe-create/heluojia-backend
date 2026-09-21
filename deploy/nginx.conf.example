@@ -1,0 +1,48 @@
+# Replace api.example.com / shop.example.com and certificate paths.
+# Install inside nginx http {}, usually /etc/nginx/conf.d/meir-shop.conf.
+server {
+    listen 80;
+    server_name api.example.com shop.example.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name api.example.com;
+    ssl_certificate /etc/nginx/certs/api.example.com/fullchain.pem;
+    ssl_certificate_key /etc/nginx/certs/api.example.com/privkey.pem;
+    root /opt/meir-shop/admin;
+    index index.html;
+    client_max_body_size 100m;
+
+    # Admin requests strip /prod-api; app and WeChat callbacks keep their paths.
+    location /prod-api/ {
+        proxy_pass http://127.0.0.1:18080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 120s;
+    }
+    location ~ ^/(shop/|shop-assets/|profile/) {
+        proxy_pass http://127.0.0.1:18080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 120s;
+    }
+    location = /index.html { add_header Cache-Control "no-cache"; }
+    location / { try_files $uri $uri/ /index.html; }
+}
+
+server {
+    listen 443 ssl;
+    server_name shop.example.com;
+    ssl_certificate /etc/nginx/certs/shop.example.com/fullchain.pem;
+    ssl_certificate_key /etc/nginx/certs/shop.example.com/privkey.pem;
+    root /opt/meir-shop/h5;
+    index index.html;
+    location = /index.html { add_header Cache-Control "no-cache"; }
+    location / { try_files $uri $uri/ /index.html; }
+}

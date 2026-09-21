@@ -1,0 +1,92 @@
+[
+  {
+    "url": "/shop-assets/cleanser.png",
+    "file": "assets/assets/cleanser.png",
+    "sha256": "21954873a6d2e9af39000d2a4dd4e62557486671f510a2d907c875db25fc8050"
+  },
+  {
+    "url": "/shop-assets/cream.png",
+    "file": "assets/assets/cream.png",
+    "sha256": "6982fd314ce35b96b3ba311c763cfebc4a3d79f498b206bd2c0e8aff616c7281"
+  },
+  {
+    "url": "/shop-assets/heluojia-clear-cream-20260920.jpg",
+    "file": "assets/assets/heluojia-clear-cream-20260920.jpg",
+    "sha256": "4cf6387c0114ebd8d1896b4466a5cde95f6d048f8ba71e63c35fb5d1f51d1b28"
+  },
+  {
+    "url": "/shop-assets/heluojia-facial-oil-20260920.jpg",
+    "file": "assets/assets/heluojia-facial-oil-20260920.jpg",
+    "sha256": "520d3dff585b44b4b3b69326485a94c4f34c1c1146b9c617297ee9a0f461e4bf"
+  },
+  {
+    "url": "/shop-assets/heluojia-gentle-cream-20260920.jpg",
+    "file": "assets/assets/heluojia-gentle-cream-20260920.jpg",
+    "sha256": "2f1d3b7eba74e9859236e97189cd0fec4b8cf1e1395ae2a1c6d956858973d9db"
+  },
+  {
+    "url": "/shop-assets/heluojia-rich-cream-20260920.jpg",
+    "file": "assets/assets/heluojia-rich-cream-20260920.jpg",
+    "sha256": "6dad6ac38d682d890f7560dadb168255437a9b84c9b7f993c411d8f9fe99598b"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-clear-cream-20260920.png",
+    "file": "assets/assets/heluojia-studio-clear-cream-20260920.png",
+    "sha256": "88db1078ef9725143742dd4c78f929ba7c8d4249080052861bede1bac17d759b"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-cream-banner-20260920.png",
+    "file": "assets/assets/heluojia-studio-cream-banner-20260920.png",
+    "sha256": "1003e086a14ddfa842714bbbd186eb0c4a8889dde6369bcf651086409d378e99"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-emulsion-20260920-v1.png",
+    "file": "assets/assets/heluojia-studio-emulsion-20260920-v1.png",
+    "sha256": "c6470c48d5a958b7c42c22334cbed287cdaf9bf0a11aa31e03f3e2a0229b7a81"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-facial-oil-20260920.png",
+    "file": "assets/assets/heluojia-studio-facial-oil-20260920.png",
+    "sha256": "8db99afdadeff22ebdccca306d151810d169c66556830a5c66836ca0cd61d65f"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-gentle-cream-20260920.png",
+    "file": "assets/assets/heluojia-studio-gentle-cream-20260920.png",
+    "sha256": "d3a12acc4122a741f020a4ed31b36a2a9472c0c6be781a1c11d19d3b3b7307bd"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-hero-20260920.png",
+    "file": "assets/assets/heluojia-studio-hero-20260920.png",
+    "sha256": "7c1d39b9ca08d6c61c8123e264b21f3985d716b9f8aab462ed40786fcdff2eed"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-renew-cream-20260920-v1.png",
+    "file": "assets/assets/heluojia-studio-renew-cream-20260920-v1.png",
+    "sha256": "ddbd3ba9346177ab71d07acefc36aa31abed691bbf07eddb5c044380b5fdee7f"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-rich-cream-20260920.png",
+    "file": "assets/assets/heluojia-studio-rich-cream-20260920.png",
+    "sha256": "08eecf1f85984b09d689a8e99dc5a4c984b0861fb35923f27a1d771610d57f93"
+  },
+  {
+    "url": "/shop-assets/heluojia-studio-toner-20260920.png",
+    "file": "assets/assets/heluojia-studio-toner-20260920.png",
+    "sha256": "04e88c51aa115440bb87555f3976b7846b655a8f957e00ce2b2ded6375f36d05"
+  },
+  {
+    "url": "/shop-assets/heluojia-toner-20260920.jpg",
+    "file": "assets/assets/heluojia-toner-20260920.jpg",
+    "sha256": "76a12892bf544c1f691818d4f6f4d771e1c1a9105b0ecdf628e2f856c1496e93"
+  },
+  {
+    "url": "/shop-assets/hero.png",
+    "file": "assets/assets/hero.png",
+    "sha256": "5a6785e70d34f3486f381db5bb7a62aa71ad036ced2fd318206b7beb55292cd0"
+  },
+  {
+    "url": "/shop-assets/serum.png",
+    "file": "assets/assets/serum.png",
+    "sha256": "ae49ab4f5eff1924e14cd99973191ba5e0145d055b3cb958f205a946430b0b47"
+  }
+]

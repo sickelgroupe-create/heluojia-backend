@@ -1,0 +1,15 @@
+package com.ruoyi.web.controller.shop;
+import javax.servlet.http.HttpServletRequest;import com.alibaba.fastjson2.JSONObject;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.web.bind.annotation.*;import org.springframework.security.access.prepost.PreAuthorize;import org.springframework.transaction.annotation.Transactional;import com.ruoyi.common.annotation.Anonymous;import com.ruoyi.common.core.domain.AjaxResult;import com.ruoyi.common.utils.SecurityUtils;import static com.ruoyi.web.controller.shop.ShopService.*;
+@RestController public class ShopPartnerController {
+ @Autowired ShopPartner p;@Autowired ShopService s;
+ private long uid(HttpServletRequest r){return number(s.member(r.getHeader("X-Shop-Token")).get("id"));}
+ @Anonymous @GetMapping("/shop/app/partner") public AjaxResult own(HttpServletRequest r){return AjaxResult.success(p.own(uid(r)));}
+ @Anonymous @GetMapping("/shop/app/partner/dashboard") public AjaxResult dashboard(HttpServletRequest r){return AjaxResult.success(p.dashboard(uid(r)));}
+ @Anonymous @PostMapping("/shop/app/partner/assistant/invite") public AjaxResult invite(HttpServletRequest r){return AjaxResult.success(p.invite(uid(r)));}
+ @Anonymous @PostMapping("/shop/app/partner/assistant/accept") public AjaxResult accept(HttpServletRequest r,@RequestBody JSONObject b){p.accept(uid(r),str(b.get("token")));return AjaxResult.success();}
+ @Anonymous @PostMapping("/shop/app/partner/assistant/revoke") public AjaxResult revoke(HttpServletRequest r){p.revoke(uid(r));return AjaxResult.success();}
+ @PreAuthorize("@ss.hasAnyPermi('shop:manage,shop:catalog,shop:finance')") @GetMapping("/shop/admin/partners") public AjaxResult admin(){return AjaxResult.success(p.admin());}
+ @PreAuthorize("@ss.hasPermi('shop:manage')") @PostMapping("/shop/admin/partners/settings") public AjaxResult settings(@RequestBody JSONObject b){p.save(b,SecurityUtils.getUsername());return AjaxResult.success();}
+ @PreAuthorize("@ss.hasPermi('shop:manage')") @PostMapping("/shop/admin/partners/assign") public AjaxResult assign(@RequestBody JSONObject b){p.assign(b,SecurityUtils.getUsername());return AjaxResult.success();}
+ @PreAuthorize("@ss.hasPermi('shop:manage')") @PostMapping("/shop/admin/partners/distributor") @Transactional public AjaxResult distributor(@RequestBody JSONObject b){long id=integer(b.get("memberId"),1,Long.MAX_VALUE,"请选择客户");String reason=str(b.get("reason")).trim();check(reason.length()>=2&&reason.length()<=300,"请填写分销资格审核依据");java.util.Map<String,Object> member=s.one("select id,distributor_state from shop_member where id=? for update",id);if(b.getBooleanValue("enabled"))check(java.util.Arrays.asList("pending","approved").contains(str(member.get("distributor_state"))),"请先由用户提交分销申请，再审核开通");String state=b.getBooleanValue("enabled")?"approved":"none";s.jdbc().update("update shop_member set distributor_state=?,distributor_note=? where id=?",state,reason,id);s.event("distributor",id,"管理员设置推广资格："+state+"；"+reason,SecurityUtils.getUsername());return AjaxResult.success();}
+}

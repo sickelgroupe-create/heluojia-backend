@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS shop_company (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT, owner_id BIGINT NOT NULL UNIQUE,
+ name VARCHAR(100) NOT NULL, approval_required BOOLEAN NOT NULL DEFAULT FALSE,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS shop_company_member (
+ member_id BIGINT PRIMARY KEY, company_id BIGINT NOT NULL, role VARCHAR(20) NOT NULL,
+ enabled BOOLEAN NOT NULL DEFAULT TRUE, joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ INDEX company_members(company_id)
+);
+CREATE TABLE IF NOT EXISTS shop_company_invite (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT, token_hash VARCHAR(64) NOT NULL UNIQUE,
+ company_id BIGINT NOT NULL, role VARCHAR(20) NOT NULL, expires_at DATETIME NOT NULL,
+ accepted_by BIGINT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS shop_procurement_draft (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT, company_id BIGINT NOT NULL, member_id BIGINT NOT NULL,
+ request_key VARCHAR(80) NOT NULL, payload_json MEDIUMTEXT NOT NULL, amount BIGINT NOT NULL,
+ status VARCHAR(20) NOT NULL DEFAULT 'pending', note VARCHAR(300) NULL,
+ order_id BIGINT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ UNIQUE KEY draft_request(member_id,request_key), INDEX company_drafts(company_id,status)
+);
+
+CREATE TABLE IF NOT EXISTS shop_company_handover(company_id BIGINT PRIMARY KEY,from_member BIGINT NOT NULL,to_member BIGINT NOT NULL,status VARCHAR(20) NOT NULL DEFAULT 'pending',expires_at DATETIME NOT NULL);
